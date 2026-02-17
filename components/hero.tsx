@@ -9,8 +9,8 @@ import { company, images } from "@/lib/data";
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-brand-dark">
-      {/* Background Image – Desktop */}
-      <div className="absolute inset-0 hidden sm:block">
+      {/* Background Image – Querformat (Desktop/Tablet landscape) */}
+      <div className="absolute inset-0 hidden landscape:block">
         <Image
           src={images.hero}
           alt={images.heroAlt}
@@ -20,8 +20,8 @@ export function Hero() {
           sizes="100vw"
         />
       </div>
-      {/* Background Image – Mobile (Hochformat) */}
-      <div className="absolute inset-0 sm:hidden">
+      {/* Background Image – Hochformat (Handy/Tablet portrait) */}
+      <div className="absolute inset-0 landscape:hidden">
         <Image
           src={images.heroMobile}
           alt={images.heroAlt}
