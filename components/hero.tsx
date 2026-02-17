@@ -36,7 +36,7 @@ export function Hero() {
 
       {/* Content – kompakt am unteren Rand */}
       <div className="relative z-10 w-full">
-        <div className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32">
+        <div className="mx-auto max-w-7xl px-5 pb-10 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
