@@ -12,7 +12,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
   return (
-    <section className="bg-brand-dark pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pb-20">
+    <section className="bg-brand-dark pt-28 pb-12 sm:pt-36 sm:pb-16 lg:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
         {breadcrumbs && (

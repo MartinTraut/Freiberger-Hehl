@@ -9,8 +9,8 @@ import { company, images } from "@/lib/data";
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-brand-dark">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image – Desktop */}
+      <div className="absolute inset-0 hidden sm:block">
         <Image
           src={images.hero}
           alt={images.heroAlt}
@@ -19,9 +19,20 @@ export function Hero() {
           priority
           sizes="100vw"
         />
-        {/* Nur unten ein Gradient für Lesbarkeit der Schrift */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 via-30% to-transparent" />
       </div>
+      {/* Background Image – Mobile (Hochformat) */}
+      <div className="absolute inset-0 sm:hidden">
+        <Image
+          src={images.heroMobile}
+          alt={images.heroAlt}
+          fill
+          className="object-cover object-top"
+          priority
+          sizes="100vw"
+        />
+      </div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 via-30% to-transparent" />
 
       {/* Content – kompakt am unteren Rand */}
       <div className="relative z-10 w-full">

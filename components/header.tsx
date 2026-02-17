@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
@@ -10,6 +11,8 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -32,15 +35,15 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
+        isScrolled || !isHome
           ? "bg-brand-dark/95 backdrop-blur-md shadow-lg shadow-black/20"
           : "bg-transparent"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={cn(
-            "flex items-center justify-between transition-all duration-300",
-            isScrolled ? "h-20 sm:h-24" : "h-16 sm:h-20"
+            "flex items-center transition-all duration-300",
+            isScrolled || !isHome ? "h-24 sm:h-32" : "h-16 sm:h-20"
           )}>
 
           {/* Logo – fade in beim Scrollen, Platz bleibt reserviert */}
@@ -48,7 +51,7 @@ export function Header() {
             href="/"
             className={cn(
               "relative z-50 shrink-0 transition-all duration-300",
-              isScrolled
+              isScrolled || !isHome
                 ? "opacity-100"
                 : "pointer-events-none opacity-0"
             )}
@@ -58,20 +61,20 @@ export function Header() {
               alt={company.name}
               width={300}
               height={200}
-              className="h-16 w-auto sm:h-20"
+              className="h-20 w-auto sm:h-28"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-8 lg:flex lg:ml-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-white",
-                  isScrolled ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+                  isScrolled || !isHome ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
                 )}
               >
                 {item.label}
@@ -80,7 +83,7 @@ export function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-4 lg:ml-auto lg:flex">
             <a
               href={`tel:${company.phone}`}
               className={cn(
@@ -102,7 +105,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
+            className="relative z-50 ml-auto flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
             aria-label={isMobileOpen ? "Menü schließen" : "Menü öffnen"}
           >
             {isMobileOpen ? (

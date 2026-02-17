@@ -62,6 +62,7 @@ export const images = {
   favicon:
     "https://www.freibergerhehl.de/wp-content/uploads/2021/10/cropped-Design-ohne-Titel1.png",
   hero: "/hero.png",
+  heroMobile: "/hero-mobile.png",
   heroAlt: "Freiberger & Hehl – Erdbau & Baggerbetrieb",
   team: "https://www.freibergerhehl.de/wp-content/uploads/2022/05/Design-ohne-Titel4.png",
   teamAlt: "Sascha Freiberger und Erik Hehl",
@@ -316,6 +317,102 @@ export const reviews: Review[] = [
     name: "SB",
     text: "Das Duo Erik und Sascha liefert sehr gute und zuverlässige Arbeit. Vielen Dank für eure Flexibilität und fairen Preise.",
     rating: 5,
+  },
+];
+
+export interface Machine {
+  name: string;
+  category: string;
+  description: string;
+  specs: string[];
+  image: string;
+  imageAlt: string;
+}
+
+export const machines: Machine[] = [
+  {
+    name: "Kettenbagger 8t",
+    category: "Bagger",
+    description:
+      "Unser Allrounder für mittlere bis große Erdarbeiten. Ideal für Baugruben, Aushubarbeiten und Geländemodellierung.",
+    specs: [
+      "Einsatzgewicht: ca. 8 Tonnen",
+      "Grabtiefe: bis 4,5 m",
+      "Vielseitige Anbaugeräte",
+      "Für Erdarbeiten & Aushub",
+    ],
+    image: images.erdarbeitenFundament,
+    imageAlt: "Kettenbagger bei Erdarbeiten für Fundament",
+  },
+  {
+    name: "Mobilbagger",
+    category: "Bagger",
+    description:
+      "Schnell und flexibel einsetzbar – perfekt für Arbeiten auf wechselnden Baustellen und beengten Zufahrten.",
+    specs: [
+      "Straßentauglich",
+      "Schnelle Verlagerung",
+      "Ideal für enge Zufahrten",
+      "Für Bagger- & Erdarbeiten",
+    ],
+    image: images.zisterneBagger,
+    imageAlt: "Mobilbagger bei Baggerarbeiten",
+  },
+  {
+    name: "Minibagger",
+    category: "Bagger",
+    description:
+      "Kompakt und wendig – ideal für Arbeiten im Garten, neben Gebäuden oder auf engem Raum.",
+    specs: [
+      "Kompakte Abmessungen",
+      "Schonend für den Untergrund",
+      "Zugang durch Gartentore",
+      "Für Pool, Zisterne & Garten",
+    ],
+    image: images.carportSquare,
+    imageAlt: "Minibagger bei Aushubarbeiten",
+  },
+  {
+    name: "Radlader",
+    category: "Transport",
+    description:
+      "Leistungsstark beim Laden, Transportieren und Verfüllen von Erdmassen und Schüttgut.",
+    specs: [
+      "Hohe Schaufelkapazität",
+      "Schneller Materialtransport",
+      "Vielseitig einsetzbar",
+      "Für Erd- & Weinbergarbeiten",
+    ],
+    image: images.weinbergRigolen,
+    imageAlt: "Radlader beim Weinberg rigolen",
+  },
+  {
+    name: "Dumper / Raupenträger",
+    category: "Transport",
+    description:
+      "Für den effizienten Materialtransport auf der Baustelle – auch in schwierigem Gelände.",
+    specs: [
+      "Geländegängig",
+      "Hohe Nutzlast",
+      "Auch in Hanglagen einsetzbar",
+      "Für Abtransport & Anlieferung",
+    ],
+    image: images.erdeAbtragen,
+    imageAlt: "Materialtransport auf der Baustelle",
+  },
+  {
+    name: "Verdichtungstechnik",
+    category: "Spezialgeräte",
+    description:
+      "Rüttelplatten und Walzen für die fachgerechte Verdichtung von Böden und Tragschichten.",
+    specs: [
+      "Rüttelplatten verschiedener Größen",
+      "Für Tragschichten & Verfüllungen",
+      "Normgerechte Verdichtung",
+      "Für Fundamente & Wegebau",
+    ],
+    image: images.erdeAbtragen2,
+    imageAlt: "Verdichtungsarbeiten auf der Baustelle",
   },
 ];
 
