@@ -14,9 +14,9 @@ export function Footer() {
             <Image
               src={images.logoWhite}
               alt={company.name}
-              width={200}
-              height={125}
-              className="mb-4 h-12 w-auto brightness-0 invert sm:mb-6 sm:h-16"
+              width={320}
+              height={213}
+              className="mb-4 h-24 w-auto sm:mb-6 sm:h-32"
             />
             <p className="mb-6 text-sm leading-relaxed text-brand-gray-400">
               {company.tagline}. Ihr zuverlässiger Partner für Erdarbeiten

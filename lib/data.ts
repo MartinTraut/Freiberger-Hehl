@@ -57,12 +57,12 @@ export const company = {
 } as const;
 
 export const images = {
-  logo: "/logo.png",
-  logoWhite: "/logo.png",
+  logo: "/logo-clean.png",
+  logoWhite: "/logo-clean.png",
   favicon:
     "https://www.freibergerhehl.de/wp-content/uploads/2021/10/cropped-Design-ohne-Titel1.png",
-  hero: "https://www.freibergerhehl.de/wp-content/uploads/2022/05/Design-ohne-Titel9.png",
-  heroAlt: "Erdarbeiten für Fundament – Freiberger & Hehl",
+  hero: "/hero.png",
+  heroAlt: "Freiberger & Hehl – Erdbau & Baggerbetrieb",
   team: "https://www.freibergerhehl.de/wp-content/uploads/2022/05/Design-ohne-Titel4.png",
   teamAlt: "Sascha Freiberger und Erik Hehl",
   weinbergRigolen:

@@ -19,52 +19,31 @@ export function Hero() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-brand-dark/40 sm:from-brand-dark/90 sm:via-brand-dark/65 sm:to-brand-dark/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent" />
+        {/* Nur unten ein Gradient für Lesbarkeit der Schrift */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 via-30% to-transparent" />
       </div>
 
-      {/* Content */}
+      {/* Content – kompakt am unteren Rand */}
       <div className="relative z-10 w-full">
-        <div className="mx-auto max-w-7xl px-5 pb-32 pt-28 sm:px-6 sm:pb-36 sm:pt-32 md:pb-40 lg:px-8 lg:pb-44">
-          <div className="max-w-2xl lg:max-w-3xl">
-            {/* Tagline – Gold */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-gold/30 bg-brand-gold/10 px-3.5 py-1.5 text-xs font-medium text-brand-gold sm:mb-5 sm:px-4 sm:py-2 sm:text-sm"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
-              Erdbau- & Baggerbetrieb in {company.address.city}
-            </motion.div>
-
+        <div className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col items-center text-center sm:items-start sm:text-left"
+          >
             {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-            >
+            <h1 className="mb-2 font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-white sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl">
               {company.heroHeadline}
-            </motion.h1>
+            </h1>
 
             {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mb-8 text-base text-brand-gray-300 sm:mb-10 sm:text-lg md:text-xl lg:text-2xl"
-            >
+            <p className="mb-5 text-sm text-brand-gray-300 sm:mb-6 sm:text-base md:text-lg">
               {company.heroSubline}
-            </motion.p>
+            </p>
 
-            {/* CTAs – Rot als Primär */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="flex flex-col gap-3 sm:flex-row sm:gap-4"
-            >
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/kontakt"
                 className="group flex h-12 items-center justify-center gap-2 rounded-lg bg-brand-red px-6 text-sm font-semibold text-white transition-all hover:bg-brand-red-light hover:shadow-xl hover:shadow-brand-red/30 sm:h-14 sm:px-8 sm:text-base"
@@ -79,8 +58,8 @@ export function Hero() {
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 {company.phoneDisplay}
               </a>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Stats Bar */}

@@ -34,19 +34,31 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-brand-dark/95 backdrop-blur-md shadow-lg shadow-black/20"
-          : "bg-brand-dark/80 backdrop-blur-sm"
+          : "bg-transparent"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between sm:h-20">
-          {/* Logo */}
-          <Link href="/" className="relative z-50 shrink-0">
+        <div className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            isScrolled ? "h-20 sm:h-24" : "h-16 sm:h-20"
+          )}>
+
+          {/* Logo – fade in beim Scrollen, Platz bleibt reserviert */}
+          <Link
+            href="/"
+            className={cn(
+              "relative z-50 shrink-0 transition-all duration-300",
+              isScrolled
+                ? "opacity-100"
+                : "pointer-events-none opacity-0"
+            )}
+          >
             <Image
               src={images.logo}
               alt={company.name}
-              width={220}
-              height={100}
-              className="h-11 w-auto sm:h-14"
+              width={300}
+              height={200}
+              className="h-16 w-auto sm:h-20"
               priority
             />
           </Link>
@@ -57,7 +69,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-brand-gray-300 transition-colors hover:text-white"
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-white",
+                  isScrolled ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+                )}
               >
                 {item.label}
               </Link>
@@ -68,7 +83,10 @@ export function Header() {
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href={`tel:${company.phone}`}
-              className="flex items-center gap-2 text-sm font-medium text-brand-gray-300 transition-colors hover:text-brand-gold"
+              className={cn(
+                "flex items-center gap-2 text-sm font-medium transition-colors hover:text-brand-gold",
+                isScrolled ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+              )}
             >
               <Phone className="h-4 w-4" />
               {company.phoneDisplay}
