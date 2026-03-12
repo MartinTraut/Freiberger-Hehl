@@ -26,7 +26,7 @@ export function Hero() {
           src={images.heroMobile}
           alt={images.heroAlt}
           fill
-          className="object-cover object-[15%_15%]"
+          className="object-cover object-[center_top]"
           priority
           sizes="100vw"
         />
