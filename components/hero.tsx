@@ -26,17 +26,17 @@ export function Hero() {
           src={images.heroMobile}
           alt={images.heroAlt}
           fill
-          className="object-cover object-top"
+          className="object-cover object-[15%_15%]"
           priority
           sizes="100vw"
         />
       </div>
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 via-30% to-transparent" />
+      {/* Gradient Overlay – stärker für bessere Lesbarkeit */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 via-35% to-brand-dark/20" />
 
       {/* Content – kompakt am unteren Rand */}
       <div className="relative z-10 w-full">
-        <div className="mx-auto max-w-7xl px-5 pb-10 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32">
+        <div className="mx-auto max-w-7xl px-5 pb-8 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,12 +44,12 @@ export function Hero() {
             className="flex flex-col items-center text-center sm:items-start sm:text-left"
           >
             {/* Headline */}
-            <h1 className="mb-2 font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-white sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="mb-2 font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl">
               {company.heroHeadline}
             </h1>
 
             {/* Subheadline */}
-            <p className="mb-5 text-sm text-brand-gray-300 sm:mb-6 sm:text-base md:text-lg">
+            <p className="mb-5 text-sm text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] sm:mb-6 sm:text-base md:text-lg">
               {company.heroSubline}
             </p>
 
@@ -57,14 +57,14 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/kontakt"
-                className="group flex h-12 items-center justify-center gap-2 rounded-lg bg-brand-red px-6 text-sm font-semibold text-white transition-all hover:bg-brand-red-light hover:shadow-xl hover:shadow-brand-red/30 sm:h-14 sm:px-8 sm:text-base"
+                className="group flex h-12 items-center justify-center gap-2 rounded-lg bg-brand-red px-6 text-sm font-semibold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-light hover:shadow-xl hover:shadow-brand-red/30 sm:h-14 sm:px-8 sm:text-base"
               >
                 Jetzt Angebot anfordern
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
               </Link>
               <a
                 href={`tel:${company.phone}`}
-                className="flex h-12 items-center justify-center gap-2 rounded-lg border border-brand-gold/30 bg-brand-gold/10 px-6 text-sm font-semibold text-brand-gold backdrop-blur-sm transition-all hover:border-brand-gold/50 hover:bg-brand-gold/20 sm:h-14 sm:px-8 sm:text-base"
+                className="flex h-12 items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/20 sm:h-14 sm:px-8 sm:text-base"
               >
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 {company.phoneDisplay}
@@ -73,14 +73,14 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Stats Bar */}
+        {/* Stats Bar – volle Breite ohne schwarze Ränder */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="border-t border-brand-gold/20 bg-brand-dark/70 backdrop-blur-lg"
+          className="border-t border-white/10 bg-brand-dark/80 backdrop-blur-lg"
         >
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/5 sm:grid-cols-4">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 sm:grid-cols-4">
             {[
               { value: "5/5", label: "Google Bewertung" },
               { value: "15+", label: "Zufriedene Kunden" },
@@ -89,7 +89,7 @@ export function Hero() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-brand-dark/50 px-4 py-3.5 text-center backdrop-blur-sm sm:px-6 sm:py-5"
+                className="px-4 py-3.5 text-center sm:px-6 sm:py-5"
               >
                 <div className="font-display text-lg font-bold text-brand-red sm:text-2xl">
                   {stat.value}

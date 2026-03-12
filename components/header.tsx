@@ -1,16 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone } from "lucide-react";
-import { company, images, navigation } from "@/lib/data";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { company, images, navigation, services } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -31,6 +33,17 @@ export function Header() {
     };
   }, [isMobileOpen]);
 
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <header
       className={cn(
@@ -43,10 +56,10 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={cn(
             "flex items-center transition-all duration-300",
-            isScrolled || !isHome ? "h-24 sm:h-32" : "h-16 sm:h-20"
+            isScrolled || !isHome ? "h-20 sm:h-24" : "h-16 sm:h-20"
           )}>
 
-          {/* Logo – fade in beim Scrollen, Platz bleibt reserviert */}
+          {/* Logo – kleiner und harmonischer */}
           <Link
             href="/"
             className={cn(
@@ -59,27 +72,84 @@ export function Header() {
             <Image
               src={images.logo}
               alt={company.name}
-              width={300}
-              height={200}
-              className="h-20 w-auto sm:h-28"
+              width={240}
+              height={160}
+              className="h-14 w-auto sm:h-20"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 lg:flex lg:ml-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-white",
-                  isScrolled || !isHome ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="hidden items-center gap-7 lg:flex lg:ml-8">
+            {navigation.map((item) => {
+              // Leistungen mit Dropdown
+              if (item.label === "Leistungen") {
+                return (
+                  <div
+                    key={item.href}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-1 text-sm font-medium transition-colors hover:text-white",
+                        isScrolled || !isHome ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown className={cn(
+                        "h-3.5 w-3.5 transition-transform duration-200",
+                        isServicesOpen && "rotate-180"
+                      )} />
+                    </Link>
+
+                    {/* Dropdown */}
+                    <div className={cn(
+                      "absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 transition-all duration-200",
+                      isServicesOpen ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"
+                    )}>
+                      <div className="overflow-hidden rounded-xl border border-white/10 bg-brand-dark/95 shadow-2xl shadow-black/40 backdrop-blur-xl">
+                        {services.map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/leistungen/${service.slug}`}
+                            className="block px-4 py-3 text-sm text-brand-gray-300 transition-colors hover:bg-white/10 hover:text-white"
+                            onClick={() => setIsServicesOpen(false)}
+                          >
+                            {service.shortTitle}
+                          </Link>
+                        ))}
+                        <div className="border-t border-white/10">
+                          <Link
+                            href="/leistungen"
+                            className="block px-4 py-3 text-sm font-medium text-brand-red transition-colors hover:bg-white/10 hover:text-brand-red-light"
+                            onClick={() => setIsServicesOpen(false)}
+                          >
+                            Alle Leistungen
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-white",
+                    isScrolled || !isHome ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA */}
@@ -87,8 +157,8 @@ export function Header() {
             <a
               href={`tel:${company.phone}`}
               className={cn(
-                "flex items-center gap-2 text-sm font-medium transition-colors hover:text-brand-gold",
-                isScrolled ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
+                "flex items-center gap-2 text-sm font-medium transition-colors hover:text-white",
+                isScrolled || !isHome ? "text-brand-gray-300" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]"
               )}
             >
               <Phone className="h-4 w-4" />
@@ -127,14 +197,30 @@ export function Header() {
         <div className="flex h-full flex-col justify-center px-6 sm:px-8">
           <nav className="space-y-5">
             {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileOpen(false)}
-                className="block font-display text-xl font-bold text-white transition-colors hover:text-brand-red sm:text-2xl"
-              >
-                {item.label}
-              </Link>
+              <div key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsMobileOpen(false)}
+                  className="block font-display text-xl font-bold text-white transition-colors hover:text-brand-red sm:text-2xl"
+                >
+                  {item.label}
+                </Link>
+                {/* Mobile Leistungen Sub-Items */}
+                {item.label === "Leistungen" && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/leistungen/${service.slug}`}
+                        onClick={() => setIsMobileOpen(false)}
+                        className="block text-sm text-brand-gray-400 transition-colors hover:text-white"
+                      >
+                        {service.shortTitle}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
           <div className="mt-8 space-y-3">
@@ -142,7 +228,7 @@ export function Header() {
               href={`tel:${company.phone}`}
               className="flex h-12 items-center gap-3 text-base font-medium text-brand-gray-300 sm:text-lg"
             >
-              <Phone className="h-5 w-5 text-brand-gold" />
+              <Phone className="h-5 w-5 text-brand-red" />
               {company.phoneDisplay}
             </a>
             <Link

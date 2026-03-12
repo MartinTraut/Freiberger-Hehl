@@ -33,8 +33,8 @@ export function ProjectsTeaser() {
         <StaggerContainer className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((project) => (
             <StaggerItem key={project.title}>
-              <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
@@ -43,15 +43,15 @@ export function ProjectsTeaser() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <div className="p-4 sm:p-6">
+                <div className="flex flex-1 flex-col p-4 sm:p-6">
                   <h3 className="mb-2 font-display text-base font-bold text-brand-dark sm:text-lg">
                     {project.title}
                   </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-brand-gray-500">
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-brand-gray-500">
                     {project.description}
                   </p>
                   <div className="flex items-center gap-1.5 text-xs text-brand-gray-400">
-                    <MapPin className="h-3.5 w-3.5" />
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
                     {project.location}
                   </div>
                 </div>

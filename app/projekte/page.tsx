@@ -30,8 +30,8 @@ export default function ProjektePage() {
           <StaggerContainer className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
               <StaggerItem key={project.title}>
-                <div className="group overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-shadow hover:shadow-xl">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-shadow hover:shadow-xl">
+                  <div className="relative aspect-[16/10] shrink-0 overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.imageAlt}
@@ -40,15 +40,15 @@ export default function ProjektePage() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h2 className="mb-2 font-display text-xl font-bold text-brand-dark">
                       {project.title}
                     </h2>
-                    <p className="mb-4 text-sm leading-relaxed text-brand-gray-500">
+                    <p className="mb-4 flex-1 text-sm leading-relaxed text-brand-gray-500">
                       {project.description}
                     </p>
                     <div className="flex items-center gap-1.5 text-xs text-brand-gray-400">
-                      <MapPin className="h-3.5 w-3.5" />
+                      <MapPin className="h-3.5 w-3.5 shrink-0" />
                       {project.location}
                     </div>
                   </div>

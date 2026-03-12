@@ -57,8 +57,8 @@ export const company = {
 } as const;
 
 export const images = {
-  logo: "/logo-clean.png",
-  logoWhite: "/logo-clean.png",
+  logo: "/logo-transparent.png",
+  logoWhite: "/logo-transparent.png",
   favicon:
     "https://www.freibergerhehl.de/wp-content/uploads/2021/10/cropped-Design-ohne-Titel1.png",
   hero: "/hero.png",

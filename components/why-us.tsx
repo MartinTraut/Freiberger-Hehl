@@ -44,14 +44,14 @@ export function WhyUs() {
         <StaggerContainer className="grid gap-4 sm:gap-6 md:grid-cols-3 md:gap-8">
           {reasons.map((reason) => (
             <StaggerItem key={reason.title}>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:border-brand-gold/30 sm:p-8">
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-gold/10">
-                  <reason.icon className="h-7 w-7 text-brand-gold" />
+              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:border-brand-red/30 sm:p-8">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-red/10">
+                  <reason.icon className="h-7 w-7 text-brand-red" />
                 </div>
                 <h3 className="mb-3 font-display text-xl font-bold text-white">
                   {reason.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-brand-gray-400">
+                <p className="flex-1 text-sm leading-relaxed text-brand-gray-400">
                   {reason.description}
                 </p>
               </div>

@@ -29,9 +29,9 @@ export function ServicesOverview() {
             <StaggerItem key={service.slug} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
               <Link
                 href={`/leistungen/${service.slug}`}
-                className="group block overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-all hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-red/5"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-all hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-red/5"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
@@ -40,12 +40,12 @@ export function ServicesOverview() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
-                  <h3 className="absolute bottom-3 left-3 font-display text-lg font-bold text-white sm:bottom-4 sm:left-4 sm:text-xl">
+                  <h3 className="absolute bottom-3 left-3 font-display text-lg font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] sm:bottom-4 sm:left-4 sm:text-xl">
                     {service.shortTitle}
                   </h3>
                 </div>
-                <div className="p-4 sm:p-6">
-                  <p className="mb-4 text-sm leading-relaxed text-brand-gray-500">
+                <div className="flex flex-1 flex-col p-4 sm:p-6">
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-brand-gray-500">
                     {service.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-red transition-colors group-hover:text-brand-red-dark">

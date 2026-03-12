@@ -16,7 +16,7 @@ export function Footer() {
               alt={company.name}
               width={320}
               height={213}
-              className="mb-4 h-20 w-auto sm:mb-6 sm:h-28"
+              className="mb-4 h-16 w-auto sm:mb-6 sm:h-20"
             />
             <p className="mb-6 text-sm leading-relaxed text-brand-gray-400">
               {company.tagline}. Ihr zuverlässiger Partner für Erdarbeiten

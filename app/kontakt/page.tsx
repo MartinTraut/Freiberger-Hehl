@@ -99,44 +99,34 @@ export default function KontaktPage() {
                   </div>
                 </div>
 
-                {/* Map Placeholder (privacy-friendly) */}
-                <div className="mt-10 overflow-hidden rounded-2xl border border-brand-gray-200 bg-brand-gray-50 p-6">
-                  <div className="mb-3 flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-brand-gold" />
-                    <h3 className="font-display text-sm font-bold text-brand-dark">
-                      Standort
-                    </h3>
-                  </div>
-                  <p className="mb-4 text-sm text-brand-gray-500">
-                    {company.name}
-                    <br />
-                    {company.address.street}
-                    <br />
-                    {company.address.zip} {company.address.city}
-                  </p>
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      `${company.address.street}, ${company.address.zip} ${company.address.city}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-red transition-colors hover:text-brand-red-dark"
-                  >
-                    In Google Maps öffnen
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                {/* Eingebettete Karte */}
+                <div className="mt-10 overflow-hidden rounded-2xl border border-brand-gray-200">
+                  <iframe
+                    src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5!2d${company.coordinates.lng}!3d${company.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDA1JzAxLjAiTiA5wrAwOScxNS41IkU!5e0!3m2!1sde!2sde!4v1`}
+                    width="100%"
+                    height="220"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Standort Freiberger & Hehl"
+                    className="grayscale"
+                  />
+                  <div className="flex items-center justify-between bg-brand-gray-50 px-4 py-3">
+                    <p className="text-xs text-brand-gray-500">
+                      {company.address.street}, {company.address.zip} {company.address.city}
+                    </p>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        `${company.address.street}, ${company.address.zip} ${company.address.city}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold text-brand-red transition-colors hover:text-brand-red-dark"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
+                      Größere Karte
+                    </a>
+                  </div>
                 </div>
               </div>
             </FadeIn>

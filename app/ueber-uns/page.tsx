@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Shield, Clock, Wallet, MapPin } from "lucide-react";
 import { images, company } from "@/lib/data";
 import { PageHeader } from "@/components/page-header";
 import { CTASection } from "@/components/cta-section";
@@ -76,43 +77,53 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-brand-gray-50 py-24">
+      <section className="bg-brand-dark py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeIn className="mb-16 text-center">
-            <h2 className="mb-4 font-display text-2xl font-bold text-brand-dark sm:text-3xl">
+          <FadeIn className="mb-12 text-center sm:mb-16">
+            <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-red">
+              Wofür wir stehen
+            </p>
+            <h2 className="mb-4 font-display text-2xl font-bold text-white sm:text-3xl">
               Unsere Werte
             </h2>
-            <p className="mx-auto max-w-2xl text-brand-gray-500">
+            <p className="mx-auto max-w-2xl text-brand-gray-400">
               Das zeichnet uns als Team aus – und dafür stehen wir bei jedem
               Projekt.
             </p>
           </FadeIn>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
+                icon: Shield,
                 title: "Zuverlässigkeit",
                 text: "Absprachen werden eingehalten. Wenn wir zusagen, dann liefern wir – termingerecht und in der vereinbarten Qualität.",
               },
               {
+                icon: Clock,
                 title: "Erfahrung",
                 text: "Über 10 Jahre Erfahrung im Baumaschinen- und GaLaBau-Bereich. Wir wissen, was wir tun.",
               },
               {
+                icon: Wallet,
                 title: "Faire Preise",
                 text: "Transparente Angebote ohne versteckte Kosten. Du weißt vorher, was Dich erwartet.",
               },
               {
+                icon: MapPin,
                 title: "Regional",
                 text: `Fest verwurzelt in ${company.address.city} und der Region ${company.region}. Kurze Wege, schnelle Reaktion.`,
               },
             ].map((value) => (
               <FadeIn key={value.title}>
-                <div className="rounded-2xl bg-white p-6 shadow-sm">
-                  <h3 className="mb-3 font-display text-lg font-bold text-brand-dark">
+                <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-brand-red/30">
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-red/10">
+                    <value.icon className="h-6 w-6 text-brand-red" />
+                  </div>
+                  <h3 className="mb-3 font-display text-lg font-bold text-white">
                     {value.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-brand-gray-500">
+                  <p className="flex-1 text-sm leading-relaxed text-brand-gray-400">
                     {value.text}
                   </p>
                 </div>
@@ -134,8 +145,8 @@ export default function UeberUnsPage() {
           <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
             {company.founders.map((founder) => (
               <FadeIn key={founder.name}>
-                <div className="rounded-2xl border border-brand-gray-200 bg-white p-8 text-center transition-shadow hover:shadow-lg">
-                  <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-brand-dark font-display text-2xl font-bold text-brand-gold">
+                <div className="flex h-full flex-col items-center rounded-2xl border border-brand-gray-200 bg-white p-8 text-center transition-shadow hover:shadow-lg">
+                  <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-brand-dark font-display text-2xl font-bold text-brand-red">
                     {founder.name
                       .split(" ")
                       .map((n) => n[0])
@@ -144,13 +155,13 @@ export default function UeberUnsPage() {
                   <h3 className="mb-1 font-display text-lg font-bold text-brand-dark">
                     {founder.name}
                   </h3>
-                  <p className="mb-3 text-sm font-medium text-brand-gold">
+                  <p className="mb-3 text-sm font-medium text-brand-red">
                     {founder.role}
                   </p>
                   <p className="text-sm text-brand-gray-500">
                     {founder.training}
                   </p>
-                  <p className="mt-1 text-sm text-brand-gray-500">
+                  <p className="mt-1 flex-1 text-sm text-brand-gray-500">
                     {founder.experience}
                   </p>
                 </div>

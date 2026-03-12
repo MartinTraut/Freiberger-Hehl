@@ -53,13 +53,13 @@ export function Reviews() {
         <StaggerContainer className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {reviews.slice(0, 6).map((review) => (
             <StaggerItem key={review.name}>
-              <div className="rounded-2xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
+              <div className="flex h-full flex-col rounded-2xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
                 <StarRating rating={review.rating} />
-                <p className="mt-4 text-sm leading-relaxed text-brand-gray-600">
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-brand-gray-600">
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-dark font-display text-sm font-bold text-white">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-dark font-display text-sm font-bold text-white">
                     {review.name
                       .split(" ")
                       .map((n) => n[0])
