@@ -23,10 +23,10 @@ function StarRating({ rating }: { rating: number }) {
 
 export function Reviews() {
   return (
-    <section className="bg-brand-gray-50 py-16 sm:py-24 lg:py-32">
+    <section className="bg-brand-gray-50 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <FadeIn className="mb-10 text-center sm:mb-16">
+        <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-gold">
             Bewertungen
           </p>
@@ -53,7 +53,7 @@ export function Reviews() {
         <StaggerContainer className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {reviews.slice(0, 6).map((review) => (
             <StaggerItem key={review.name}>
-              <div className="flex h-full flex-col rounded-2xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
+              <div className="flex h-full flex-col rounded-xl border border-brand-gray-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-lg sm:p-6">
                 <StarRating rating={review.rating} />
                 <p className="mt-4 flex-1 text-sm leading-relaxed text-brand-gray-600">
                   &ldquo;{review.text}&rdquo;

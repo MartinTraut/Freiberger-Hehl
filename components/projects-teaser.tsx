@@ -8,10 +8,10 @@ export function ProjectsTeaser() {
   const featured = projects.slice(0, 3);
 
   return (
-    <section className="bg-brand-gray-50 py-16 sm:py-24 lg:py-32">
+    <section className="bg-brand-gray-50 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <FadeIn className="mb-10 flex flex-col items-start justify-between gap-4 sm:mb-16 sm:flex-row sm:items-end sm:gap-6">
+        <FadeIn className="mb-10 flex flex-col items-start justify-between gap-4 sm:mb-14 sm:flex-row sm:items-end sm:gap-6">
           <div className="max-w-2xl">
             <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-gold">
               Referenzen
@@ -33,7 +33,7 @@ export function ProjectsTeaser() {
         <StaggerContainer className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((project) => (
             <StaggerItem key={project.title}>
-              <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-xl">
+              <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-brand-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg">
                 <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image
                     src={project.image}

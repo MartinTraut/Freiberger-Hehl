@@ -438,6 +438,7 @@ export const processSteps = [
 ] as const;
 
 export const navigation = [
+  { label: "Startseite", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Maschinenpark", href: "/maschinen" },
   { label: "Projekte", href: "/projekte" },

@@ -24,10 +24,10 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section className="bg-brand-dark py-16 sm:py-24 lg:py-32">
+    <section className="bg-brand-dark py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <FadeIn className="mb-10 text-center sm:mb-16">
+        <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-gold">
             Warum wir
           </p>
@@ -44,7 +44,7 @@ export function WhyUs() {
         <StaggerContainer className="grid gap-4 sm:gap-6 md:grid-cols-3 md:gap-8">
           {reasons.map((reason) => (
             <StaggerItem key={reason.title}>
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:border-brand-red/30 sm:p-8">
+              <div className="flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-white/20 sm:p-8">
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-red/10">
                   <reason.icon className="h-7 w-7 text-brand-red" />
                 </div>

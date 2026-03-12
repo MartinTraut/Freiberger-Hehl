@@ -26,7 +26,7 @@ export default function UeberUnsPage() {
       />
 
       {/* Story Section */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* Image */}
@@ -77,7 +77,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-brand-dark py-20 sm:py-24">
+      <section className="bg-brand-dark py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn className="mb-12 text-center sm:mb-16">
             <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-red">
@@ -116,7 +116,7 @@ export default function UeberUnsPage() {
               },
             ].map((value) => (
               <FadeIn key={value.title}>
-                <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-brand-red/30">
+                <div className="flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-white/20">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-red/10">
                     <value.icon className="h-6 w-6 text-brand-red" />
                   </div>
@@ -134,9 +134,9 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Team Cards */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeIn className="mb-16 text-center">
+          <FadeIn className="mb-12 text-center sm:mb-14">
             <h2 className="mb-4 font-display text-2xl font-bold text-brand-dark sm:text-3xl">
               Das Team
             </h2>
@@ -145,7 +145,7 @@ export default function UeberUnsPage() {
           <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
             {company.founders.map((founder) => (
               <FadeIn key={founder.name}>
-                <div className="flex h-full flex-col items-center rounded-2xl border border-brand-gray-200 bg-white p-8 text-center transition-shadow hover:shadow-lg">
+                <div className="flex h-full flex-col items-center rounded-xl border border-brand-gray-200 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-lg">
                   <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-brand-dark font-display text-2xl font-bold text-brand-red">
                     {founder.name
                       .split(" ")

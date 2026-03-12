@@ -16,7 +16,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className={dark ? "bg-brand-dark py-16 sm:py-24 lg:py-32" : "bg-white py-16 sm:py-24 lg:py-32"}
+      className={dark ? "bg-brand-dark py-16 sm:py-20 lg:py-24" : "bg-white py-16 sm:py-20 lg:py-24"}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn className="mx-auto max-w-3xl text-center">

@@ -6,10 +6,10 @@ const icons = [Send, MapPin, Hammer];
 
 export function ProcessSteps() {
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <FadeIn className="mb-10 text-center sm:mb-16">
+        <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-gold">
             So einfach geht&apos;s
           </p>

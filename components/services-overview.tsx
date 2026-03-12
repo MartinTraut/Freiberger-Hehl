@@ -6,10 +6,10 @@ import { FadeIn, StaggerContainer, StaggerItem } from "./motion-wrapper";
 
 export function ServicesOverview() {
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <FadeIn className="mb-10 max-w-2xl sm:mb-16">
+        <FadeIn className="mb-10 max-w-2xl sm:mb-14">
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-brand-gold">
             Unsere Leistungen
           </p>
@@ -29,7 +29,7 @@ export function ServicesOverview() {
             <StaggerItem key={service.slug} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
               <Link
                 href={`/leistungen/${service.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-all hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-red/5"
+                className="group flex h-full flex-col overflow-hidden rounded-xl border border-brand-gray-200 bg-white shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image

@@ -25,12 +25,12 @@ export default function ProjektePage() {
         breadcrumbs={[{ label: "Projekte", href: "/projekte" }]}
       />
 
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
               <StaggerItem key={project.title}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-gray-200 bg-white transition-shadow hover:shadow-xl">
+                <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-brand-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg">
                   <div className="relative aspect-[16/10] shrink-0 overflow-hidden">
                     <Image
                       src={project.image}
